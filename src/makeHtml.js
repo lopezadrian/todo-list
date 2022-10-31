@@ -1,15 +1,15 @@
 function makeFormDiv(inputName, inputType, labelText) {
-    const todoForm = document.querySelector('#todo-form');
+    const todoForm = document.getElementById('todo-form');
 
     const formDiv = document.createElement('div');
     formDiv.classList.add(inputName);
-    todoForm.appendChild(titleFormDiv);
+    todoForm.appendChild(formDiv);
 
     const formLabel = document.createElement('label');
     formLabel.for = inputName;
     const formLabelText = document.createTextNode(labelText);
     formLabel.appendChild(formLabelText);
-    formDiv.appendChild(titleFormLabel);
+    formDiv.appendChild(formLabel);
 
     const formInput = document.createElement('input');
     formInput.type = inputType;
@@ -29,10 +29,13 @@ function todoListForm() {
     todoForm.onsubmit = 'return false';
     content.appendChild(todoForm);
 
-    makeFormDiv(todoForm, 'title', 'text', 'Task');
+    makeFormDiv('title', 'text', 'Task');
 
-
-/*     const titleFormDiv = document.createElement('div');
+    makeFormDiv('description', 'text', 'Description');
+    
+    makeFormDiv('dueDate', 'date', 'Due date');
+/* 
+    const titleFormDiv = document.createElement('div');
     titleFormDiv.classList.add('title');
     todoForm.appendChild(titleFormDiv);
 
@@ -68,7 +71,7 @@ function todoListForm() {
 
     const dueDateFormDiv = document.createElement('div');
     dueDateFormDiv.classList.add('dueDate');
-    todoForm.appendChild(ddueDateFormDiv);
+    todoForm.appendChild(dueDateFormDiv);
 
     const dueDateFormLabel = document.createElement('label');
     dueDateFormLabel.for = 'dueDate';
