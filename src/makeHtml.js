@@ -1,4 +1,4 @@
-function makeFormDiv(inputName, inputType, labelText) {
+function makeFormDiv(inputName, inputType, labelText, isRequired) {
     const todoForm = document.getElementById('todo-form');
 
     const formDiv = document.createElement('div');
@@ -19,6 +19,10 @@ function makeFormDiv(inputName, inputType, labelText) {
     formDiv.appendChild(formInput);
 }
 
+function makeDropDownList() {
+
+}
+
 function todoListForm() {
     const content = document.querySelector('#content')
 
@@ -29,13 +33,19 @@ function todoListForm() {
     todoForm.onsubmit = 'return false';
     content.appendChild(todoForm);
 
-    makeFormDiv('title', 'text', 'Task');
+    makeFormDiv('title', 'text', 'Task', true);
 
-    makeFormDiv('description', 'text', 'Description');
+    makeFormDiv('description', 'text', 'Description', true);
     
-    makeFormDiv('dueDate', 'date', 'Due date');
+    makeFormDiv('dueDate', 'date', 'Due date', true);
 
-    makeFormDiv('priority', 'text', 'Priority')
+    makeFormDiv('priority', 'text', 'Priority', false);
+
+    makeFormDiv('notes', 'text', 'Notes', false);
+
+    makeFormDiv('steps', 'text', 'Steps', false);
+
+    makeDropDownList();
 }
 
 export default todoListForm;
